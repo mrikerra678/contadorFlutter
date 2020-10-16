@@ -1,5 +1,5 @@
 class Contador{
-  String nombre;
+  Future <String> nombre;
   int valor;
   Contador(this.nombre,{this.valor = 0});
 }

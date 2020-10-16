@@ -36,9 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _newContador() {
     setState(() {
-      _list.add(Contador('Contador #${_list.length + 1}'));
+      _list.add(Contador('nombreFuturo() #${_list.length + 1}'));
     });
   }
+
+  Future<String> nombreFuturo() {
+  return Future.delayed(Duration(seconds: 4), () => 'Large Latte');
+}
 
   @override
   Widget build(BuildContext context) {
