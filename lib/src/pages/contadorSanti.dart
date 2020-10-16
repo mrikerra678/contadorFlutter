@@ -33,16 +33,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // State
   var _list = <Contador>[];
-
-  void _newContador() {
-    setState(() {
-      _list.add(Contador('nombreFuturo() #${_list.length + 1}'));
+Future<String> getFutureData() async{
+    return await Future.delayed(Duration(seconds: 5), () {
+      return 'Hola!!!';
     });
   }
-
-  Future<String> nombreFuturo() {
-  return Future.delayed(Duration(seconds: 4), () => 'Large Latte');
-}
+  void _newContador() {
+    setState(() {
+      _list.add(Contador(getFutureData()),
+    );});}
+    
+  
 
   @override
   Widget build(BuildContext context) {
@@ -66,4 +67,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+  
+  }
